@@ -1,0 +1,574 @@
+/*
+* RLS Demo - Angular 4 & Bootstrap 4
+* Date: January 2020
+* Version: 1.0
+* Author: Gandhi & Vikrant
+* Copyright (C) 2020 Vee Technologies
+*/
+
+@import 'variables';
+@import 'mixins';
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700&display=swap');
+
+body {
+  font-size: 14px;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: $grey;
+  position: relative;
+
+  // Header
+  .rls-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: $base-color;
+    padding: 25px 0px;
+    .rls-header-left {
+      h2 {
+        font-size: $heading-size;
+        color: $white;
+        font-weight: 400;
+        margin-bottom: 8px;
+        small {
+          font-size: 12px;
+          margin-left: 10px;
+        }
+      }
+      p {
+        color: $white;
+        margin-bottom: 0;
+      }
+    }
+    .rls-header-right {
+      button {
+        margin-left: 8px;
+      }
+    }
+
+    .rls-header-box {
+      margin-top: 20px;
+      border: 1px solid $white;
+      border-radius: 4px;
+      p {
+        margin-bottom: 0px;
+        color: $white;
+        padding: 12px;
+      }
+      .dropdown-toggle::after {
+        display: none;
+      }
+      .rls-btn-dot-dropdown {
+        padding-left: 5px;
+        padding-right: 12px;
+      }
+    }
+    .dropdown-item {
+      font-size: 14px;
+    }
+  }
+  //   RLS Content
+  .rls-content {
+    margin-top: 175px;
+    padding: 20px 0px;
+    h2 {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .rls-top-box {
+      border: 1px solid $grey;
+      padding: 15px 18px;
+      margin-top: 15px;
+      border-radius: 4px;
+      .rls-box-one {
+        padding: 0px 12px;
+        border-right: 1px solid $grey;
+        width: 40%;
+
+        h4 {
+          font-size: 18px;
+          font-weight: bold;
+        }
+        .rls-box-text {
+          display: flex;
+          justify-content: flex-start;
+          p {
+            margin-right: 20px;
+            margin-bottom: 0px;
+          }
+        }
+      }
+      .rls-box-two {
+        padding: 0px 12px;
+        border-right: 1px solid $grey;
+        width: 48%;
+
+        h4 {
+          font-size: 18px;
+          font-weight: bold;
+        }
+        .rls-box-text {
+          display: flex;
+          justify-content: flex-start;
+          p {
+            margin-right: 20px;
+            margin-bottom: 0px;
+          }
+        }
+      }
+      .rls-box-three {
+        padding: 0px 8px;
+        width: 12%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+    }
+    .rls-section-two {
+      padding: 20px 0px;
+      .rls-lbl {
+        .rls-lbl-txt-small {
+          position: relative;
+          padding-right: 25px;
+          &:after {
+            content: '';
+            width: 10px;
+            position: absolute;
+            height: 10px;
+            top: 5px;
+            right: 10px;
+            background: #333333;
+            border-radius: 50%;
+          }
+        }
+        .rls-lbl-type {
+          position: relative;
+          padding-right: 25px;
+          &:after {
+            content: '';
+            width: 10px;
+            position: absolute;
+            height: 10px;
+            top: 5px;
+            right: 10px;
+            background: $label-five;
+            border-radius: 50%;
+          }
+        }
+        .rls-lbl-balance {
+          &:after {
+            background: $label-one;
+          }
+        }
+        .rls-lbl-consumed {
+          &:after {
+            background: $label-two;
+          }
+        }
+        .rls-lbl-planned {
+          &:after {
+            background: $label-three;
+          }
+        }
+        .rls-lbl-flex {
+          &:after {
+            background: $label-four;
+          }
+        }
+      }
+    }
+  }
+
+  //   RLS Buttons
+
+  .rls-outline-btn {
+    border: 1px solid $white;
+    color: $white;
+    font-size: 14px;
+    &:hover {
+      color: #b3cbef;
+    }
+  }
+  .rls-btn-white {
+    border: 1px solid $white;
+    color: $blue-text;
+    font-size: 14px;
+    background: $white;
+    &:hover {
+      color: #3e95f5;
+    }
+  }
+  .rls-btn-outline-blue {
+    border: 1px solid $blue-text;
+    color: $blue-text;
+    font-size: 14px;
+    background: $white;
+    &:hover {
+      color: #3e95f5;
+    }
+  }
+  .rls-btn-round-blue {
+    color: $blue-text;
+    border-radius: 50%;
+    font-size: 12px;
+    width: 33px;
+    height: 33px;
+    padding: 7px;
+    margin-left: 12px;
+    background: $light-blue;
+    &:hover {
+      color: #3e95f5;
+    }
+  }
+  .rls-btn-outline-blue:disabled {
+    border: 1px solid $light-grey;
+    color: $light-grey;
+    font-size: 14px;
+    background: $white;
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+  .custom-select {
+    font-size: 14px;
+  }
+  .form-control {
+    font-size: 14px;
+  }
+  .selected-list[_ngcontent-c1] .c-btn[_ngcontent-c1] {
+    box-shadow: none;
+    padding: 7px 8px;
+  }
+  .selected-list[_ngcontent-c1] .c-angle-down[_ngcontent-c1],
+  .selected-list[_ngcontent-c1] .c-angle-up[_ngcontent-c1] {
+    width: 12px;
+    height: 20px;
+  }
+}
+
+.rsl-data-grid {
+  width: 40%;
+  // height: 100vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+  & .rsl-table-header {
+    height: 36px;
+    display: inline-block;
+    background: $table-header;
+    color: darken($table-header, 30%);
+    font-size: 12px;
+    line-height: 36px;
+    padding: 0 16px;
+    font-weight: 600;
+
+    & .rsl-dataset {
+      //border-right: .5px solid lighten($black, 90%);
+
+      &:last-child {
+        //border-bottom: .5px solid lighten($black, 90%);
+      }
+      & .indicator {
+        margin-top: -17px;
+        margin-left: -2px;
+      }
+      & .rsl-type {
+        width: 8px;
+        height: 8px;
+        border-radius: 4px;
+        display: inline-block;
+        margin: 2px;
+        content: ' ';
+      }
+      & .flex {
+        background: $color-flex;
+      }
+      & .type {
+        background: $color-type;
+      }
+      & .custom-control {
+        margin-top: 6px;
+        & .custom-control-label {
+          content: ' ';
+        }
+      }
+      & .header-lable {
+        min-width: 100px;
+        max-width: 160px;
+      }
+    }
+    & .rsl-resultset {
+      color: lighten($black, 40%);
+      font-size: 14px;
+      min-height: 103px;
+      //border-right: .5px solid lighten($black, 90%);
+
+      & .sec-data {
+        display: block;
+        font-size: 10px;
+        line-height: 4px;
+        margin-top: -4px;
+        color: lighten($black, 60%);
+      }
+      &:last-child {
+        //border-bottom: .5px solid lighten($black, 90%);
+      }
+      & .indicator {
+        margin-top: -17px;
+        margin-left: -2px;
+      }
+      & .rsl-type {
+        width: 8px;
+        height: 8px;
+        border-radius: 4px;
+        display: inline-block;
+        margin: 2px;
+        content: ' ';
+      }
+      & .flex {
+        background: $color-flex;
+      }
+      & .type {
+        background: $color-type;
+      }
+      & .custom-control {
+        margin-top: 6px;
+        & .custom-control-label {
+          content: ' ';
+        }
+      }
+      & .header-lable {
+        min-width: 100px;
+        max-width: 160px;
+      }
+    }
+  }
+}
+.header-action-btn {
+  .rls-btn-round-blue::after {
+    display: none;
+  }
+}
+.rsl-static-grid {
+  width: 20%;
+  // height: 100vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+  & .rsl-table-header {
+    height: 36px;
+    display: inline-block;
+    background: $table-header;
+    color: darken($table-header, 30%);
+    font-size: 12px;
+    line-height: 36px;
+    padding: 0 16px;
+    font-weight: 600;
+
+    & .rsl-dataset {
+      //border-right: .5px solid lighten($black, 90%);
+
+      &:last-child {
+        //border-bottom: .5px solid lighten($black, 90%);
+      }
+      & .indicator {
+        margin-top: -17px;
+        margin-left: -2px;
+      }
+      & .rsl-type {
+        width: 8px;
+        height: 8px;
+        border-radius: 4px;
+        display: inline-block;
+        margin: 2px;
+        content: ' ';
+      }
+      & .flex {
+        background: $color-flex;
+      }
+      & .type {
+        background: $color-type;
+      }
+      & .custom-control {
+        margin-top: 6px;
+        & .custom-control-label {
+          content: ' ';
+        }
+      }
+      & .header-lable {
+        min-width: 60px;
+        max-width: 100px;
+        padding-left: 16px;
+      }
+    }
+    & .rsl-resultset {
+      color: lighten($black, 40%);
+      font-size: 14px;
+      min-height: 48px;
+      //border-right: .5px solid lighten($black, 90%);
+
+      & .sec-data {
+        display: block;
+        font-size: 10px;
+        line-height: 4px;
+        margin-top: -4px;
+        color: lighten($black, 60%);
+      }
+      &:last-child {
+        //border-bottom: .5px solid lighten($black, 90%);
+      }
+      & .indicator {
+        margin-top: -17px;
+        margin-left: -2px;
+      }
+      & .rsl-type {
+        width: 8px;
+        height: 8px;
+        border-radius: 4px;
+        display: inline-block;
+        margin: 2px;
+        content: ' ';
+      }
+      & .flex {
+        background: $color-flex;
+      }
+      & .type {
+        background: $color-type;
+      }
+      & .custom-control {
+        margin-top: 6px;
+        & .custom-control-label {
+          content: ' ';
+        }
+      }
+      & .header-lable {
+        min-width: 60px;
+        max-width: 100px;
+        padding-left: 16px;
+      }
+    }
+  }
+}
+.rsl-month-grid {
+  width: 40%;
+  // height: 100vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+  & .rsl-table-header {
+    height: 36px;
+    display: inline-block;
+    background: $table-header;
+    color: darken($table-header, 30%);
+    font-size: 12px;
+    line-height: 36px;
+    padding: 0 16px;
+    font-weight: 600;
+
+    & .rsl-dataset {
+      //border-right: .5px solid lighten($black, 90%);
+
+      &:last-child {
+        //border-bottom: .5px solid lighten($black, 90%);
+      }
+      & .indicator {
+        margin-top: -17px;
+        margin-left: -2px;
+      }
+      & .rsl-type {
+        width: 8px;
+        height: 8px;
+        border-radius: 4px;
+        display: inline-block;
+        margin: 2px;
+        content: ' ';
+      }
+      & .flex {
+        background: $color-flex;
+      }
+      & .type {
+        background: $color-type;
+      }
+      & .custom-control {
+        margin-top: 6px;
+        & .custom-control-label {
+          content: ' ';
+        }
+      }
+      & .header-lable {
+        min-width: 60px;
+        max-width: 100px;
+      }
+    }
+    & .rsl-resultset {
+      color: lighten($black, 40%);
+      font-size: 14px;
+      min-height: 48px;
+      //border-right: .5px solid lighten($black, 90%);
+
+      & .sec-data {
+        display: block;
+        font-size: 10px;
+        line-height: 4px;
+        margin-top: -4px;
+        color: lighten($black, 60%);
+      }
+      &:last-child {
+        //border-bottom: .5px solid lighten($black, 90%);
+      }
+      & .indicator {
+        margin-top: -17px;
+        margin-left: -2px;
+      }
+      & .rsl-type {
+        width: 8px;
+        height: 8px;
+        border-radius: 4px;
+        display: inline-block;
+        margin: 2px;
+        content: ' ';
+      }
+      & .flex {
+        background: $color-flex;
+      }
+      & .type {
+        background: $color-type;
+      }
+      & .custom-control {
+        margin-top: 6px;
+        & .custom-control-label {
+          content: ' ';
+        }
+      }
+      & .header-lable {
+        min-width: 60px;
+        max-width: 100px;
+      }
+    }
+  }
+}
+
+.rsl-h-scroll::-webkit-scrollbar {
+  width: 0 !important;
+}
+body::-webkit-scrollbar {
+  width: 0 !important;
+}
+.rsl-h-scroll {
+  overflow-y: visible;
+  overflow-x: auto;
+  white-space: nowrap;
+  vertical-align: text-top;
+  padding: 0;
+  clear: both;
+
+  border-spacing: 5px;
+}
+.pos-relative {
+  position: relative;
+}
+.w-100 {
+  width: 100%;
+}
+
+.load-more{
+  margin-left: 50%;
+}

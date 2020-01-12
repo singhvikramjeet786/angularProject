@@ -1,0 +1,700 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<!-- 
+ * @author Priyadharshini Murugan(V2E12515)
+ * @file rls component html 
+ * @description UI design
+ * @version 1.0.0 -->
+ 
+ <header class="rls-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="rls-header-left">
+          <h2>
+            Execution RLS
+            <small>Last saved on: <strong>10 Jan, 2020 </strong></small>
+          </h2>
+          <p>Service offering 2 > <strong>Execution</strong></p>
+        </div>
+      </div>
+      <div class="col-md-6 d-flex justify-content-end align-items-center">
+        <div class="rls-header-right ">
+          <button type="button" class="btn rls-outline-btn">
+            <span class="rls-icon-tree"></span>
+          </button>
+          <button type="button" class="btn rls-outline-btn">
+            <span class="rls-icon-download"></span>
+          </button>
+          <button type="button" class="btn rls-outline-btn">
+            <span class="rls-icon-upload"></span>
+          </button>
+          <button
+            class="btn rls-btn-white dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            More Actions
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else</a>
+          </div>
+          <button type="button" class="btn rls-btn-white">Cost Movment</button>
+        </div>
+      </div>
+    </div>
+    <div class="rls-header-box">
+      <div class="row">
+        <div class="col-md-3">
+          <p>Period : <strong>01-Jan-19 To 31-Dec-19 </strong></p>
+        </div>
+        <div class="col-md-3">
+          <p>Planned Cost : <strong>100,999,902,00 USD </strong></p>
+        </div>
+        <div class="col-md-3">
+          <p>Consumed Cost : <strong>100,999,902,00 USD </strong></p>
+        </div>
+        <div class="col-md-3 d-flex justify-content-between align-items-center">
+          <p>Balanced Cost : <strong>100,999,902,00 USD</strong></p>
+          <div>
+            <button
+              type="button"
+              class="btn text-light rls-btn-dot-dropdown dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <span class="rls-icon-more"></span>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<section class="rls-content">
+<div class="container">
+  <h2>People Cost</h2>
+  <div class="rls-top-box">
+    <div class="row">
+      <div class="rls-box-one">
+        <h4>Efforts ( Person months )</h4>
+        <div class="rls-box-text">
+          <p>Planned : <strong>{{totalPlanEfforts}}</strong></p>
+          <p>Consumed : <strong>{{totalConsumedEfforts}}</strong></p>
+          <p>Balance : <strong>{{totalBalancedEfforts}}</strong></p>
+        </div>
+      </div>
+      <div class="rls-box-two">
+        <h4>Cost ( USD )</h4>
+        <div class="rls-box-text">
+          <p>Planned : <strong>100,000,000.00</strong></p>
+          <p>Consumed : <strong>00,000,000.00</strong></p>
+          <p>Balance : <strong>70,000,000.00</strong></p>
+        </div>
+      </div>
+      <div class="rls-box-three">
+        <button type="button" class="btn rls-btn-outline-blue" (click)="calculateTotalEffort()">
+          <span class="rls-icon-mathematics mr-2"></span> Calculate
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="rls-section-two">
+    <div class="row">
+      <div class="col-md-8 d-flex align-items-center justify-content-start">
+        <button
+          type="button"
+          class="btn rls-btn-outline-blue mr-2"
+          data-toggle="modal"
+          data-target="#exampleModalLong"
+        >
+          <span class="rls-icon-plus-unborder"></span> Add RLS Record
+        </button>
+        <button type="button" disabled class="btn rls-btn-outline-blue mr-2">
+          <span class="rls-icon-mark"></span> Mark as Flex
+        </button>
+        <button type="button" disabled class="btn rls-btn-outline-blue mr-2">
+          <span class="rls-icon-edit"></span> Edit
+        </button>
+        <div>
+          <button
+            type="button"
+            class="btn rls-btn-outline-blue dropdown-toggle"
+            type="button"
+            disabled
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            More Actions
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-md-4 text-right d-flex justify-content-end align-items-center"
+      >
+        <div class="rls-lbl ">
+          <div class="d-flex justify-content-end align-items-center">
+            <div class="rls-lbl-txt-small rls-lbl-balance">Balance</div>
+            <div class="rls-lbl-txt-small rls-lbl-consumed">Consumed</div>
+            <div class="rls-lbl-txt-small rls-lbl-planned">Planned</div>
+            <div class="rls-lbl-txt-small rls-lbl-flex">Flex</div>
+          </div>
+          <div class="rls-lbl-type">Type 2</div>
+        </div>
+        <button type="button" class="btn rls-btn-outline-blue">
+          <span class="rls-icon-filter"></span>
+        </button>
+        <button type="button" class="btn ml-2 rls-btn-outline-blue">
+          <span class="rls-icon-horiz-expand"></span>
+        </button>
+        <button type="button" class="btn ml-2 rls-btn-outline-blue">
+          <span class="rls-icon-expand"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+
+<div class="container d-flex flex-row pos-relative">
+  <div class="rsl-data-grid rsl-h-scroll">
+    <div class="rsl-table-header">
+      <div class="rsl-dataset ">
+        <div class="d-flex flex-row">
+          <div class="header-lable">
+            <div class="custom-control custom-checkbox mr-sm-2">
+              <input
+                type="checkbox"
+                class="custom-control-input"
+                id="customControlAutosizing"
+              />
+              <label
+                class="custom-control-label"
+                for="customControlAutosizing"
+              ></label>
+            </div>
+          </div>
+          <div class="header-lable">RSL ID</div>
+          <div class="header-lable">Demand Role</div>
+          <div class="header-lable">Skils</div>
+          <div class="header-lable">City</div>
+          <div class="header-lable">Billability</div>
+        </div>
+      </div>
+      <div class="rsl-resultset" *ngFor="let rlsDataItem of rlsData">
+        <div class="d-flex flex-row">
+          <div class="header-lable">
+            <div class="custom-control custom-checkbox mr-sm-2">
+              <input
+                type="checkbox"
+                class="custom-control-input"
+                id="customControlAutosizing2"
+              />
+              <label
+                class="custom-control-label"
+                for="customControlAutosizing2"
+              ></label>
+            </div>
+          </div>
+          <div class="header-lable">
+            <div class="">{{ rlsDataItem.id }}</div>
+            <div class="indicator">
+              <span class="rsl-type flex"></span>
+              <span class="rsl-type type"></span>
+            </div>
+          </div>
+          <div class="header-lable"> {{rlsDataItem.demandrole.name}}</div>
+          <div class="header-lable">
+            Angular JS <div *ngFor="let secondarySkills of rlsDataItem.assignedskills; let in = index">
+              <span class="sec-data" >{{secondarySkills.skill.name}}</span></div>
+          </div>
+          <div class="header-lable">
+            {{rlsDataItem.city.name}} <span class="sec-data"></span>
+          </div>
+          <div class="header-lable">{{rlsDataItem.billability}}</div>
+        </div>
+      
+      
+     
+      </div>
+    </div>
+  </div>
+  
+  
+
+  <div class="rsl-month-grid rsl-h-scroll" >
+    <div class="rsl-table-header">
+      <div class="rsl-dataset ">
+        <div class="d-flex flex-row">
+          <div class="header-lable">
+            <span class="badge badge-info">2019</span>
+          </div>
+          <div class="header-lable">Jan</div>
+          <div class="header-lable">Feb</div>
+          <div class="header-lable">Mar</div>
+          <div class="header-lable">Apr</div>
+          <div class="header-lable">May</div>
+          <div class="header-lable">Jun</div>
+          <div class="header-lable">Jul</div>
+          <div class="header-lable">Aug</div>
+          <div class="header-lable">Sep</div>
+          <div class="header-lable">Oct</div>
+          <div class="header-lable">Nov</div>
+          <div class="header-lable">Dec</div>
+        </div>
+      </div>
+      <!-- dfadsfa -->
+      <div *ngFor="let rlsData of rlsData" class="rsl-resultset">
+        <div class="d-flex flex-row">
+          <div class="header-lable">
+            <div class="header-lable">
+              <span class="badge badge-success">P</span>
+            </div>
+          </div>
+          <div class="header-lable" *ngFor="let effort of [1,2,3,4,5,6,7,8,9,10,11,12]; let inP = index">
+            <span *ngIf="!rlsData.planefforts.length">
+              <input type="number" class="rls-form-control form-control"
+                      [value]= "rlsData.planefforts.length" placeholder="000.00" 
+                       (click)="effortUpdate(this.rlsData.id,1,inP,2019,$event.target.value)">
+                     </span>
+            <div class="header-lable" *ngFor="let planeffort of rlsData.planefforts">
+              
+              <span *ngIf="planeffort.effort_type === 1">
+                  <div class="header-lable">
+                      <input type="number" class="rls-form-control form-control"
+                      [value]= "planeffort.month === inP+1 ? planeffort.value: 0" placeholder="000.00" 
+                     (click)="effortUpdate(this.rlsData.id,1,inP,2019,$event.target.value)">
+                  </div>
+               
+              </span>
+             
+            </div>
+          </div>
+
+        </div>
+        <div class="d-flex flex-row">
+          <div class="header-lable">
+            <div class="header-lable">
+              <span class="badge badge-warning">C</span>
+            </div>
+          </div>
+
+          <div class="header-lable"  *ngFor="let effort of [1,2,3,4,5,6,7,8,9,10,11,12]; let inC = index">
+            <span *ngIf="!rlsData.planefforts.length">
+              <input type="number" class="rls-form-control form-control"
+                      [value]= " rlsData.planefforts.length" placeholder="000.00" (input)="effortUpdate($event.target.value)">
+                     </span>
+            <div class="header-lable" *ngFor="let planeffort of rlsData.planefforts">
+              <span *ngIf="planeffort.effort_type === 2">
+                <div class="header-lable">
+                  <input type="number" class="rls-form-control form-control"
+                  [value]= "planeffort.month === inC+1 ? planeffort.value: 0" placeholder="000.00" (input)="effortUpdate($event.target.value)">
+              </div>
+
+              </span>
+             
+            </div>
+          </div>
+        </div>
+        <div class="d-flex flex-row">
+          <div class="header-lable">
+            <div class="header-lable">
+              <span class="badge badge-info">B</span>
+            </div>
+          </div>
+
+          <div class="header-lable" *ngFor="let effort of [1,2,3,4,5,6,7,8,9,10,11,12]; let inB = index">
+            <span *ngIf="!rlsData.planefforts.length">
+              <input type="number" class="rls-form-control form-control"
+                      [value]= " rlsData.planefforts.length" placeholder="000.00" (input)="effortUpdate($event.target.value)">
+                     </span>
+            <div class="header-lable" *ngFor="let planeffort of rlsData.planefforts">
+              <span *ngIf="planeffort.effort_type === 3">
+                <div class="header-lable">
+                  <input type="number" class="rls-form-control form-control"
+                  [value]= "planeffort.month === inB+1 ? planeffort.value: 0" placeholder="000.00" (input)="effortUpdate($event.target.value)">
+              </div>
+              </span>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="rsl-static-grid"  >
+    <div class="rsl-table-header w-100">
+      <div class="rsl-dataset ">
+        <div class="d-flex flex-row">
+          <div class="header-lable">
+            Total effort
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-start">
+        <div class="rsl-resultset">
+          <div class="d-flex flex-row">
+            <div class="header-lable">{{currentRecordTotalPlanEfforts}}</div>
+          </div>
+          <div class="d-flex flex-row">
+            <div class="header-lable">{{currentRecordTotalConsumedEfforts}}</div>
+          </div>
+          <div class="d-flex flex-row">
+            <div class="header-lable">{{currentRecordTotalBalancedEfforts}}</div>
+          </div>
+        </div>
+        <div
+          class="rsl-resultset d-flex justify-content-center align-items-center"
+        >
+          <div class="d-flex flex-row">
+            <div class="header-action-btn">
+              <button class="btn rls-btn-round-blue">
+                <span class="rls-icon-stack"></span>
+              </button>
+            </div>
+            <div class="header-action-btn">
+              <div>
+                <button
+                  type="button"
+                  class="btn rls-btn-round-blue rls-edit-btn dropdown-toggle"
+                  type="button"
+                  id="dropdownMenuButton"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <span class="rls-icon-edit"></span>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                  <button
+                  type="button"
+                  class="dropdown-item"
+                  data-toggle="modal"
+                  data-target="#exampleModalLong"
+                  (click)="editRls($event, rlsData[0])"
+                >RLS Edit</button>
+
+                  <!-- <a class="dropdown-item" data-target="#exampleModalLong">RLS Edit</a> -->
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </div>
+            </div>
+            <div class="header-action-btn">
+              <button class="btn rls-btn-round-blue">
+                <span class="rls-icon-indent"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<div>
+  <button class="load-more" (click)="loadMore()">Load More</button>
+</div>
+<div
+  class="modal fade"
+  id="exampleModalLong"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLongTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Add RLS Record</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label for="demandRole"
+                >Demand role <sup class="text-danger">*</sup></label
+              >
+              <angular4-multiselect
+                [data]="demandRolesList"
+                [(ngModel)]="selectedDemandItems"
+                [settings]="dropdownSettingsSingle"
+                (onSelect)="onItemSelect($event,'demand')"
+                (onDeSelect)="OnItemDeSelect($event,'demand')"
+                (onSelectAll)="onSelectAll($event,'demand')"
+                (onDeSelectAll)="onDeSelectAll($event,'demand')"
+              ></angular4-multiselect>
+              <small id="emailHelp" class="form-text f-14 text-danger"
+                >Enter Valid Field.</small
+              >
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label for="exampleInputEmail1"
+                >Customer role <sup class="text-danger">*</sup></label
+              >
+              <angular4-multiselect
+                [data]="customerRolesList"
+                [(ngModel)]="selectedCustomerItems"
+                [settings]="dropdownSettingsSingle"
+                (onSelect)="onItemSelect($event,'customer')"
+                (onDeSelect)="OnItemDeSelect($event,'customer')"
+                (onSelectAll)="onSelectAll($event,'customer')"
+                (onDeSelectAll)="onDeSelectAll($event,'customer')"
+              ></angular4-multiselect>
+              <small id="emailHelp" class="form-text f-14 text-danger"
+                >Enter Valid Field.</small
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label for="primarySkills"
+                >Primary Skills <sup class="text-danger">*</sup></label
+              >
+              <angular4-multiselect
+                [data]="skillsList"
+                [(ngModel)]="selectedPrimaryskillItems"
+                [settings]="dropdownSettingsMultiple"
+                (onSelect)="onItemSelect($event,'primarySkills')"
+                (onDeSelect)="OnItemDeSelect($event,'primarySkills')"
+                (onSelectAll)="onSelectAll($event,'primarySkills')"
+                (onDeSelectAll)="onDeSelectAll($event,'primarySkills')"
+              ></angular4-multiselect>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label for="additionalSkills"
+                >Additional Skills <sup class="text-danger">*</sup></label
+              >
+              <angular4-multiselect
+                [data]="skillsList"
+                [(ngModel)]="selectedSecondaryskillItems"
+                [settings]="dropdownSettingsMultiple"
+                (onSelect)="onItemSelect($event,'additionalSkills')"
+                (onDeSelect)="OnItemDeSelect($event,'additionalSkills')"
+                (onSelectAll)="onSelectAll($event,'additionalSkills')"
+                (onDeSelectAll)="onDeSelectAll($event,'additionalSkills')"
+              ></angular4-multiselect>
+            </div>
+          </div>
+        </div>
+         
+        <div class="row">
+          <div class="col-md-6">
+           
+            <div class="form-group mb-3">
+              <label for="additionalSkills"
+                >Billability <sup class="text-danger">*</sup></label
+              >
+              <angular4-multiselect
+                [data]="billabilityList"
+                [(ngModel)]="selectedBillabilityItems"
+                [settings]="dropdownSettingsSingle"
+                (onSelect)="onItemSelect($event,'billability')"
+                (onDeSelect)="OnItemDeSelect($event,'billability')"
+                (onSelectAll)="onSelectAll($event,'billability')"
+                (onDeSelectAll)="onDeSelectAll($event,'billability')"
+              ></angular4-multiselect>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label for="city">City <sup class="text-danger">*</sup></label>
+              <angular4-multiselect
+                [data]="citiesList"
+                [(ngModel)]="selectedCityItems"
+                [settings]="dropdownSettingsSingle"
+                (onSelect)="onItemSelect($event,'city')"
+                (onDeSelect)="OnItemDeSelect($event,'city')"
+                (onSelectAll)="onSelectAll($event,'city')"
+                (onDeSelectAll)="onDeSelectAll($event,'city')"
+              ></angular4-multiselect>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+       
+            <div class="form-group mb-3">
+              <label for="additionalSkills"
+                >Shift <sup class="text-danger">*</sup></label
+              >
+              <angular4-multiselect
+                [data]="shiftList"
+                [(ngModel)]="selectedShiftItems"
+                [settings]="dropdownSettingsSingle"
+                (onSelect)="onItemSelect($event,'shift')"
+                (onDeSelect)="OnItemDeSelect($event,'shift')"
+                (onSelectAll)="onSelectAll($event,'shift')"
+                (onDeSelectAll)="onDeSelectAll($event,'shift')"
+              ></angular4-multiselect>
+            </div>
+          </div>
+          <div class="col-md-6">
+            
+            <div class="form-group mb-3">
+              <label for="additionalSkills"
+                >Service Offering <sup class="text-danger">*</sup></label
+              >
+              <angular4-multiselect
+                [data]="serviceOfferingList"
+                [(ngModel)]="selectedServiceOfferingItems"
+                [settings]="dropdownSettingsSingle"
+                (onSelect)="onItemSelect($event,'service_offering')"
+                (onDeSelect)="OnItemDeSelect($event,'service_offering')"
+                (onSelectAll)="onSelectAll($event,'service_offering')"
+                (onDeSelectAll)="onDeSelectAll($event,'service_offering')"
+              ></angular4-multiselect>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label for="language"
+                >Language <sup class="text-danger">*</sup></label
+              >
+              <angular4-multiselect
+                [data]="languagesList"
+                [(ngModel)]="selectedLanguageItems"
+                [settings]="dropdownSettingsSingle"
+                (onSelect)="onItemSelect($event,'language')"
+                (onDeSelect)="OnItemDeSelect($event,'language')"
+               
+              ></angular4-multiselect>
+            </div>
+          </div>
+          <div class="col-md-6"></div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <div class="form-group mb-3">
+                <label
+                  ngmode>Standard billing rate <sup class="text-danger">*</sup></label
+                >
+                <div><strong>{{standardRate}} USD</strong></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group mb-3">
+              <label for="discount"
+                >Discount ( % ) <sup class="text-danger">*</sup></label
+              >
+              <input
+                type="number"
+                class="form-control"
+                id="discount"
+                aria-describedby="discount"
+                placeholder="0"
+                max="3"
+                (input)="calculateDiscount($event.target.value)"
+              />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group mb-3">
+              <label for="primarySkills"
+                >Rate after discount <sup class="text-danger">*</sup></label
+              >
+              <div><strong>{{afterDiscountRate}} USD</strong></div>
+            </div>
+          </div>
+        </div>
+        <hr />
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label for="primarySkills"
+                >Standard cost <sup class="text-danger">*</sup></label
+              >
+              <div><strong>{{standardCost}} USD</strong></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label for="primarySkills"
+                >Standard working hours <sup class="text-danger">*</sup></label
+              >
+              <div><strong>Onsite 8 Hrs</strong></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label for="primarySkills"
+                >DC Expense <sup class="text-danger">*</sup></label
+              >
+              <div><strong>{{dcExpense}} USD</strong></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group mb-3">
+              <label for="primarySkills"
+                >DC Loading <sup class="text-danger">*</sup></label
+              >
+              <div><strong>XYZ</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <div *ngIf = "!rlsDataId">
+          <button type="button" class="btn btn-primary" (click)="updateRLS()">Update</button>
+        </div>
+        <button type="button" class="btn btn-primary" (click)=" createRLS()">Save</button>
+       
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
